@@ -209,6 +209,21 @@ bench.to_csv("experiments/compute.csv", index=False)
 bench"""))
 C.append(md("Note: teacher latency includes the free-tier pacing wait (`MIN_SECONDS_BETWEEN_CALLS`) — set it to 0 for that cell if you want pure API latency."))
 
+C.append(md("""## 10b · Hybrid mode: mini model first, big model only when unsure
+No extra API calls: the big model's test answers are cached. Find the smallest share of messages that must go to the big model to match its quality."""))
+C.append(code("""from src.cascade import cascade_curve, cheapest_threshold, plot_cascade
+student_probs = student.predict_proba(test_texts)
+teacher_test = [teacher_labels[t] for t in test_texts]
+cascade = cascade_curve(student_probs, teacher_test, test_gold)
+cascade.to_csv("experiments/cascade.csv", index=False)
+display(Image(plot_cascade(cascade, r_student["macro_f1"], TEACHER_F1)))
+for frac in (0.98, 0.99, 1.0):
+    best = cheapest_threshold(cascade, frac * TEACHER_F1)
+    if best:
+        print(f"reach {frac:.0%} of big-model quality by sending only {best['sent_to_big_model']:.0%} of messages "
+              f"(threshold {best['threshold']})")
+cascade"""))
+
 C.append(md("## 11 · Results file + push to GitHub"))
 C.append(code("""from src.report import write_results
 runs = pd.read_csv("experiments/runs.csv")
@@ -217,6 +232,7 @@ write_results([
     ("Teacher labels needed (MARBERTv2 student)", savings),
     ("Robustness (macro-F1)", robust),
     ("Compute (1 CPU thread)", bench),
+    ("Hybrid mode: big-model usage vs quality", cascade),
     ("Data", df.groupby(["set", "dialect"]).size().reset_index(name="n")),
 ])
 print(open("experiments/RESULTS.md").read()[:3000])"""))

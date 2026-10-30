@@ -30,3 +30,4 @@ STRATEGIES = ["random", "margin", "margin_diverse"]
 DATA = "data"
 EXP = "experiments"
 MODEL_DIR = "models/student_final"
+CASCADE_THRESHOLD = 0.8   # hybrid mode: below this confidence, ask the big model (tune from experiments/cascade.csv)
