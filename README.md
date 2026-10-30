@@ -1,10 +1,10 @@
-# Offline Arabic Customer-Message Routing with Active Distillation
+# Offline Arabic Tool Router for AI Assistants, with Active Distillation
 
 **Challenge 2 · Deliver AI with Less Compute** — Future AI Builders Hackathon (HUMAIN)
 
-> *"My laptop couldn't run AI — so I built AI that runs on it, and made it cheaper to build too."*
+> *"AI assistants waste a full LLM call deciding which tool to use. I moved that decision to a laptop CPU."*
 
-A large LLM (**teacher**) routes Saudi customer messages to 8 departments very well — but needs a GPU/API, internet, and money for every message. We distill it into a small Arabic model (**student**) that runs **offline on a CPU**. The twist: the student chooses which messages are worth paying the teacher for (**active distillation**), so it's cheaper to **run** *and* cheaper to **train**.
+Before an AI assistant answers, it must decide **which tool** handles the request: web search, image generation, code, translation, math, a document, the calendar, or plain chat. That routing step is usually a full LLM call — GPU, internet and money on every request. We distill the LLM's routing decision into a small Arabic model (**student**) that makes it **offline on a CPU in milliseconds**, across Saudi dialects, Arabizi and mixed English. The twist: the student chooses which requests are worth paying the teacher for (**active distillation**), so it's cheaper to **run** *and* cheaper to **train**.
 
 ## Results
 _Filled from `experiments/RESULTS.md`._
@@ -14,13 +14,13 @@ _Filled from `experiments/RESULTS.md`._
 | macro-F1 (human-verified test) | | |
 | Latency per message | | |
 | Needs GPU / internet | yes | **no** |
-| Teacher labels used for training | — | __ / __ pool messages |
+| Teacher labels used for training | — | __ / __ pool requests |
 
 ![learning curves](experiments/curves_bert.png)
 
 ## How it works
-1. **Data** — a generator LLM writes realistic messages in Najdi, Hijazi, Eastern and MSA (pool + held-out test), plus stress sets: unseen dialects (Egyptian, Levantine), natural Arabizi, Arabic–English code-switching.
-2. **Teacher** — Gemini labels messages (forced choice of 8 departments, temperature 0, batched, cached).
+1. **Data** — a generator LLM writes realistic assistant requests in Najdi, Hijazi, Eastern and MSA (pool + held-out test), plus stress sets: unseen dialects (Egyptian, Levantine), natural Arabizi, Arabic–English code-switching.
+2. **Teacher** — GPT-4.1-mini labels requests (forced choice of 8 tools, temperature 0, batched, cached).
 3. **Human verification** — every test message where the generator and the teacher disagree is checked by hand (+ random spot-checks).
 4. **Active distillation** — seed 80 labels → train student → pick the 80 messages it's least sure about (margin, + diversity clustering) → teacher labels only those → repeat to a 640-label budget. Compared against random selection, 3 seeds each.
 5. **Student** — MARBERTv2 fine-tuned for classification, int8-quantized for CPU.
@@ -40,7 +40,7 @@ python app.py            # turn Wi-Fi off, open http://127.0.0.1:7860
 ## Repository
 ```
 notebooks/hackathon.ipynb   the full pipeline, step by step
-src/labels.py               8 departments (single source of truth)
+src/labels.py               8 tools (single source of truth)
 src/llm.py                  Gemini wrapper: pacing, retries, JSON output
 src/generate.py             synthetic data, dedup/leak removal, human review
 src/teacher.py              batched, cached teacher labels
@@ -50,10 +50,12 @@ src/evaluation.py           macro-F1, bootstrap CI, run log
 src/robustness.py           perturbations + augmentation
 src/deploy.py               int8 quantization + CPU benchmark
 src/report.py               curves, savings table, RESULTS.md
-app.py · bench_laptop.py    offline demo + laptop benchmark
+app.py · bench_laptop.py    offline demo (single request + live stream of the test set) + laptop benchmark
 docs/DECISIONS.md           technical decisions & trade-offs
 ```
 
 ## Limitations
-Synthetic data (mitigated: separate generator, human-verified test, stress sets) · the student inherits teacher mistakes · one label per message · limited dialect coverage.
+Synthetic data (mitigated: separate generator, human-verified test, stress sets) · the student inherits teacher mistakes · one tool per request · limited dialect coverage.
+
+v1 of this project routed customer-service messages (archived in `archive/v1_customer_routing`); the same pipeline was re-targeted to tool routing for AI assistants.
 **Next:** optional online cascade (escalate low-confidence messages to ALLaM when connected), confidence calibration, urgency label, real anonymized data.

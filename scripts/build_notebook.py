@@ -4,11 +4,12 @@ import nbformat as nbf
 md, code = nbf.v4.new_markdown_cell, nbf.v4.new_code_cell
 C = []
 
-C.append(md("""# Offline Arabic customer-message routing — Active Distillation
+C.append(md("""# Offline Arabic Tool Router for AI assistants — Active Distillation
 **Challenge 2 · Deliver AI with Less Compute**
 
-A large LLM (teacher) labels Arabic customer messages; a small Arabic model (student) learns from it and runs **offline on a CPU**.
-Twist: the student picks which messages are worth paying the teacher for (**active distillation**) → cheaper to *run* and cheaper to *train*.
+AI assistants spend a full LLM call just to decide which tool handles a request (search, image, code, translate…).
+A large LLM (teacher) labels Arabic requests with the right tool; a small Arabic model (student) learns that decision and makes it **offline on a CPU in milliseconds**.
+Twist: the student picks which requests are worth paying the teacher for (**active distillation**) → cheaper to *run* and cheaper to *train*.
 
 Runtime → Change runtime type → **T4 GPU**. Run cells top to bottom. Every step is resumable: if something fails, fix it and re-run that cell."""))
 
@@ -22,9 +23,16 @@ if not os.path.exists(REPO):
     !git clone -q https://{token}@github.com/a-xvi/humain-hackathon.git {REPO}
 %cd {REPO}
 !git pull -q
-!pip -q install google-genai
-%load_ext autoreload
-%autoreload 2"""))
+!pip -q install google-genai openai"""))
+
+C.append(code("""# Archive the first version (customer-service routing) so this run starts clean
+import shutil, glob
+os.makedirs("archive/v1_customer_routing", exist_ok=True)
+for f in ["data/messages.csv", "data/test_review.csv", "experiments"]:
+    if os.path.exists(f) and not os.path.exists(f"archive/v1_customer_routing/{os.path.basename(f)}"):
+        shutil.move(f, "archive/v1_customer_routing/")
+os.makedirs("experiments", exist_ok=True)
+print(os.listdir("archive/v1_customer_routing"))"""))
 
 C.append(code("""MOCK = False   # True = whole pipeline on fake data in ~2 min, no API calls (to check everything runs)
 
@@ -36,27 +44,26 @@ if not MOCK:
     from src.llm import GeminiClient
     llm = GeminiClient(userdata.get("GEMINI_API_KEY"))"""))
 
-C.append(md("""## 1 · Pick the teacher model
-Tries several Gemini models on 3 messages. Expected: `orders_delivery, payments_billing, account_login`.
-Pick the **fastest model that answers correctly** and write it in the next cell. (Log the choice in `docs/DECISIONS.md`.)"""))
+C.append(md("""## 1 · Teacher model (OpenAI)
+Probe on 3 requests. Expected: `web_search, code_assistant, scheduling`."""))
 C.append(code("""import time
 from src.teacher import Teacher
+from src.llm import OpenAIClient, client_for
 if not MOCK:
-    probe = ["طلبي متأخر من أسبوع ووين المندوب؟", "انخصم المبلغ مرتين من بطاقتي", "ما اقدر ادخل حسابي الكود ما يوصل"]
-    llm.max_retries = 1
-    for m in ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.7-flash", "gemini-3.8-flash"]:
+    oa = OpenAIClient(userdata.get("OPENAI_API_KEY"))
+    probe = ["وش اخبار مباراة الهلال اليوم؟", "اكتب لي كود بايثون يرتب قائمة", "ذكرني بكرة الساعة 9"]
+    for m in ["gpt-4.1-mini", "gpt-4o-mini"]:
         t0 = time.time()
         try:
-            out = Teacher(llm, model=m, cache_path="/tmp/probe.json").label_many(probe, verbose=False)
-            print(f"{m:<20} {time.time() - t0:5.1f}s  {out}")
+            print(m, f"{time.time() - t0:.1f}s", Teacher(oa, model=m, cache_path="/tmp/probe.json").label_many(probe, verbose=False))
         except Exception as e:
-            print(f"{m:<20} ERROR {str(e)[:90]}")
-    llm.max_retries = 6"""))
-C.append(code("""TEACHER_MODEL = "gemini-3.6-flash"         # <- fastest correct model from the cell above
-GENERATOR_MODEL = "gemini-3.5-flash-lite"  # writes the messages (different model = less bias)"""))
+            print(m, "ERROR", str(e)[:90])"""))
+C.append(code("""TEACHER_MODEL = "gpt-4.1-mini"             # teacher (OpenAI)
+GENERATOR_MODEL = "gemini-3.5-flash-lite"  # writes the requests (different company = less bias)
+teacher_llm = llm if MOCK else oa"""))
 
-C.append(md("""## 2 · Generate the messages (≈160 API calls, ~15–20 min on the free tier)
-Pool (training), test (held-out), and stress sets (unseen dialects, Arabizi, code-switching). Re-run after any error: finished calls are cached."""))
+C.append(md("""## 2 · Generate the requests (≈160 API calls, ~15–20 min on the free tier)
+Pool (training), test (held-out), and stress sets (unseen dialects, Arabizi, code-switching). Re-run after any error: finished calls are cached.\nIf Gemini says 429 (quota), change the call to `generate_all(oa, model=\"gpt-4o-mini\")`."""))
 C.append(code("""from src.generate import generate_all, make_mock_messages
 if MOCK:
     df = make_mock_messages()
@@ -66,10 +73,10 @@ else:
 df.groupby(["set"]).size()"""))
 C.append(code("""df.sample(10, random_state=1)[["set", "dialect", "gen_label", "text"]]"""))
 
-C.append(md("## 3 · Teacher labels every message (≈130 calls, batched 20 per call, cached)"))
+C.append(md("## 3 · Teacher labels every message (≈25 calls, 100 per call, cached)"))
 C.append(code("""from src.teacher import MockTeacher
-teacher = MockTeacher(dict(zip(df.text, df.gen_label))) if MOCK else Teacher(llm, model=TEACHER_MODEL)
-teacher_labels = dict(zip(df.text, teacher.label_many(list(df.text))))
+teacher = MockTeacher(dict(zip(df.text, df.gen_label))) if MOCK else Teacher(teacher_llm, model=TEACHER_MODEL)
+teacher_labels = dict(zip(df.text, teacher.label_many(list(df.text), batch_size=100)))
 agree = (df.text.map(teacher_labels) == df.gen_label).mean()
 print(f"teacher agrees with the generator's intended label on {agree:.1%} of messages")"""))
 
@@ -197,7 +204,7 @@ for q in [False, True]:
                   **benchmark(tok, m, test_texts)})
 torch.set_num_threads(os.cpu_count())
 if not MOCK:  # teacher latency on 20 NEW single-message calls (not cached)
-    t_teacher = Teacher(llm, model=TEACHER_MODEL, cache_path="/tmp/latency_probe.json")
+    t_teacher = Teacher(teacher_llm, model=TEACHER_MODEL, cache_path="/tmp/latency_probe.json")
     lat = []
     for t in test_texts[:20]:
         t0 = time.time(); t_teacher.label_many([t + " "], verbose=False); lat.append((time.time() - t0) * 1000)

@@ -22,12 +22,12 @@ def build_prompt(texts):
     deps = "\n".join(f"- {k}: {v['definition']}" for k, v in LABELS.items())
     msgs = "\n".join(f"{i + 1}. {t}" for i, t in enumerate(texts))
     return (
-        "You are the routing system of a Saudi e-commerce company's customer service.\n"
-        "Assign EACH customer message (Saudi dialect, other Arabic dialects, MSA, Arabizi or mixed English) "
-        "to exactly ONE department.\n\n"
-        f"Departments:\n{deps}\n\n"
-        f"Messages:\n{msgs}\n\n"
-        f"Return a JSON array with exactly {len(texts)} department keys, in the same order as the messages."
+        "You are the tool router of an Arabic AI assistant.\n"
+        "For EACH user request (Saudi dialect, other Arabic dialects, MSA, Arabizi or mixed English) "
+        "choose exactly ONE tool that should handle it.\n\n"
+        f"Tools:\n{deps}\n\n"
+        f"Requests:\n{msgs}\n\n"
+        f"Return a JSON array with exactly {len(texts)} tool keys, in the same order as the requests."
     )
 
 
@@ -41,7 +41,7 @@ class Teacher:
                 self.cache = json.load(f)
 
     def _key(self, text):
-        return hashlib.sha1(f"{self.model}|{text}".encode()).hexdigest()
+        return hashlib.sha1(f"{self.model}|{','.join(LABEL_LIST)}|{text}".encode()).hexdigest()
 
     def _save(self):
         os.makedirs(os.path.dirname(self.cache_path) or ".", exist_ok=True)
@@ -54,7 +54,7 @@ class Teacher:
         if isinstance(out, list) and len(out) == len(texts) and all(o in LABEL_LIST for o in out):
             return out
         if len(texts) == 1:
-            return ["other"]  # should not happen with the enum schema; safe fallback
+            return ["general_chat"]  # should not happen with the enum schema; safe fallback
         mid = len(texts) // 2  # length mismatch -> split the batch and retry each half
         return self._label_batch(texts[:mid]) + self._label_batch(texts[mid:])
 

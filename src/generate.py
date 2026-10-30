@@ -1,7 +1,7 @@
-"""Synthetic data: realistic Saudi e-commerce customer messages written by the GENERATOR LLM.
+"""Synthetic data: realistic requests users send to an Arabic AI assistant, written by the GENERATOR LLM.
 
-Why synthetic: no public dataset of Saudi customer-service messages with our departments exists,
-and real customer data must not be used. Mitigations (say these to the judges):
+Why synthetic: no public dataset of Arabic-dialect assistant requests labeled by tool exists,
+and real user data must not be used. Mitigations (say these to the judges):
 - the generator is a DIFFERENT model from the teacher (less self-agreement bias),
 - every message has the label the generator was ASKED to write (`gen_label`),
 - test labels are human-verified (see make_review_file),
@@ -42,18 +42,19 @@ STYLES = [
     "frustrated or angry, very informal, some with emojis or repeated letters",
 ]
 TEST_STYLE = ("varied: mix short/long, polite/angry, typos; include some messages that mention words "
-              "from other departments but clearly belong to THIS department")
+              "from other tools but clearly need THIS tool")
 
 
 def _prompt(label, dialect_desc, style, n, extra=""):
     info = LABELS[label]
     return (
-        f"Write {n} different, realistic messages that customers send to the customer service of a large "
-        "Saudi online store (electronics, fashion, groceries, home products).\n"
-        f"All messages belong to this department: {info['ar']} ({label}) = {info['definition']}.\n"
+        f"Write {n} different, realistic requests that users type to an Arabic AI assistant app "
+        "(like a chatbot on their phone that can search the web, generate images, write code, translate, "
+        "calculate, read their files, manage their calendar, or just chat).\n"
+        f"All requests need this tool: {info['ar']} ({label}) = {info['definition']}.\n"
         f"Language: {dialect_desc}.\nStyle: {style}.\n{extra}"
-        "Vary products, situations, wording and length. Do NOT mention the department name. "
-        "Do NOT number the messages. Each message is written by a different customer.\n"
+        "Vary topics, situations, wording and length (students, employees, parents, developers, business owners). "
+        "Do NOT mention the tool name. Do NOT number the messages. Each request is written by a different user.\n"
         "Return a JSON array of strings."
     )
 
@@ -97,7 +98,7 @@ def pool_jobs():
 def test_jobs():
     return [{"key": f"test|{lab}|{d}",
              "prompt": _prompt(lab, desc, TEST_STYLE, TEST_PER_CELL,
-                               "Use different products and situations than typical examples.\n"),
+                               "Use different topics and situations than typical examples.\n"),
              "meta": {"set": "test", "gen_label": lab, "dialect": d, "style": -1}}
             for lab in LABELS for d, desc in DIALECTS.items()]
 
@@ -111,12 +112,12 @@ def stress_jobs():
                          "meta": {"set": "stress_unseen_dialect", "gen_label": lab, "dialect": d, "style": -1}})
         jobs.append({"key": f"stress_arabizi|{lab}",
                      "prompt": _prompt(lab, "Saudi dialect written in Arabizi (Latin letters and numbers, "
-                                            "e.g. 'abi a3rf wain 6albi', '7ayakom', 'ma ygdar')",
+                                            "e.g. 'abi tarjim hal email', '7ayakom', 'shno a5bar el ahli elyom')",
                                        TEST_STYLE, STRESS_PER_LABEL),
                      "meta": {"set": "stress_arabizi", "gen_label": lab, "dialect": "arabizi", "style": -1}})
         jobs.append({"key": f"stress_codeswitch|{lab}",
                      "prompt": _prompt(lab, "Saudi dialect mixed with many English words, as young Saudis text "
-                                            "(e.g. 'الـ order حقي delayed وش السالفة', 'abi refund')",
+                                            "(e.g. 'سوي لي script بايثون يقرا الـ CSV', 'ابي reminder بكرة الساعة 9')",
                                        TEST_STYLE, STRESS_PER_LABEL),
                      "meta": {"set": "stress_codeswitch", "gen_label": lab, "dialect": "mixed", "style": -1}})
     return jobs
@@ -214,14 +215,14 @@ def make_mock_messages(n_per_label=60, seed=0):
     """Tiny offline dataset to test the pipeline without any API (NOT for real results)."""
     rng = random.Random(seed)
     words = {
-        "orders_delivery": ["طلبي متأخر", "وين المندوب", "الشحنة ما وصلت", "تتبع الطلب", "العنوان غلط"],
-        "returns_refunds": ["ابي ارجع المنتج", "استبدال المقاس", "متى يرجع المبلغ للمرتجع", "المنتج خربان ابي ارجاع"],
-        "payments_billing": ["انخصم المبلغ مرتين", "الدفع ما مشى", "ابي الفاتورة", "تقسيط تابي", "البطاقة مرفوضة"],
-        "account_login": ["ما اقدر ادخل حسابي", "نسيت كلمة السر", "الكود ما يوصل", "ابي اغير رقم الجوال"],
-        "app_technical": ["التطبيق يطفي", "الصفحة ما تفتح", "فيه خلل بالتطبيق", "التطبيق يعلق"],
-        "product_inquiry": ["هل الجوال متوفر", "كم سعر", "فيه مقاس لارج", "مواصفات اللابتوب"],
-        "service_complaint": ["الموظف ما تعاون", "خدمتكم سيئة", "تعامل الموظف مو زين", "ما احد يرد علي"],
-        "other": ["عندي اقتراح", "السلام عليكم", "وش ساعات العمل", "شكرا لكم"],
+        "web_search": ["وش اخبار الدوري اليوم", "كم سعر الذهب الحين", "وش حالة الطقس بالرياض", "مين فاز امس"],
+        "image_generation": ["ارسم لي شعار", "سوي صورة قطة", "صمم لي بوستر", "ابي صورة غروب"],
+        "code_assistant": ["اكتب كود بايثون", "صلح هذا الخطأ في الكود", "سوي استعلام SQL", "اشرح لي هالدالة"],
+        "translation": ["ترجم للانجليزي", "وش معنى هالجملة بالعربي", "ترجم هالايميل", "حول النص للفرنسي"],
+        "math_calculation": ["كم 15 بالمية من 2400", "احسب القسط الشهري", "حل المعادلة", "كم يطلع المجموع"],
+        "document_qa": ["لخص لي الملف", "وش مكتوب في العقد", "طلع النقاط المهمة من التقرير", "وش يقول الايميل"],
+        "scheduling": ["ذكرني بكرة", "حط موعد اجتماع", "صحيني الساعة 6", "وش عندي مواعيد اليوم"],
+        "general_chat": ["السلام عليكم", "عطني نصيحة", "وش الفرق بين", "اكتب لي تهنئة"],
     }
     fill = ["والله", "لو سمحت", "يا جماعة", "بسرعة", "اليوم", "من امس", "", "ضروري", "😡", "؟"]
     rows = []

@@ -1,7 +1,7 @@
 """All settings in one place. Change a value here, not inside the code."""
 
 # --- LLMs (Gemini) ---
-TEACHER_MODEL = "gemini-3.6-flash"         # labels messages; pick the fastest model that works (notebook step 2)
+TEACHER_MODEL = "gpt-4.1-mini"             # labels messages (must match the notebook); used by the demo app
 GENERATOR_MODEL = "gemini-3.5-flash-lite"  # writes synthetic messages; a DIFFERENT model than the teacher (less bias)
 MIN_SECONDS_BETWEEN_CALLS = 4.0            # free-tier pacing (~15 requests/min)
 TEACHER_BATCH_SIZE = 20                    # messages labeled per API call

@@ -1,4 +1,4 @@
-"""Robustness: perturb the clean test set in ways real customers write, and re-score.
+"""Robustness: perturb the clean test set in ways real users type, and re-score.
 
 Programmatic perturbations (no API needed) complement the LLM-written stress sets
 (unseen dialects, natural Arabizi, code-switching) from generate.py.
@@ -40,7 +40,7 @@ def to_arabizi(text, rng):
 
 
 def truncate(text, rng, keep=0.5):
-    """Customer sends only half the message."""
+    """User sends only half the request."""
     w = text.split()
     return " ".join(w[:max(2, int(len(w) * keep))])
 

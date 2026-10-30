@@ -1,37 +1,38 @@
-"""The 8 departments. Single source of truth: prompts, training and evaluation all read from here."""
+"""The 8 tools an Arabic AI assistant can route a request to. Single source of truth:
+prompts, training and evaluation all read from here."""
 
 LABELS = {
-    "orders_delivery": {
-        "ar": "الطلبات والتوصيل",
-        "definition": "Order status, delivery delays, wrong address, courier issues",
+    "web_search": {
+        "ar": "بحث في الإنترنت",
+        "definition": "Needs current or real-time information from the internet: news, today's prices, weather, sports results, opening hours, 'who is the current ...'",
     },
-    "returns_refunds": {
-        "ar": "الإرجاع واسترداد المبالغ",
-        "definition": "Returning or exchanging a product, refunds for returned products, return/refund status",
+    "image_generation": {
+        "ar": "توليد صورة",
+        "definition": "Create, draw or edit an image, logo, illustration, poster or design",
     },
-    "payments_billing": {
-        "ar": "المدفوعات والفواتير",
-        "definition": "Payment failures, wrong or duplicate charges (including refunds for them), invoices, payment methods, installments",
+    "code_assistant": {
+        "ar": "مساعد برمجة",
+        "definition": "Write, debug, explain or convert code, SQL queries, scripts, regex, Excel formulas",
     },
-    "account_login": {
-        "ar": "الحساب وتسجيل الدخول",
-        "definition": "Login problems, password resets, OTP/verification codes, account access, registration, updating account details",
+    "translation": {
+        "ar": "ترجمة",
+        "definition": "Translate text between languages (including translating a file or email the user gives)",
     },
-    "app_technical": {
-        "ar": "المشاكل التقنية والتطبيق",
-        "definition": "App or website crashes, bugs, loading errors, technical malfunctions (NOT login or password problems)",
+    "math_calculation": {
+        "ar": "حسابات",
+        "definition": "Arithmetic, percentages, unit or currency-style conversions with given rates, equations, loan or budget calculations",
     },
-    "product_inquiry": {
-        "ar": "الاستفسارات عن المنتجات",
-        "definition": "Questions before buying: availability, prices, specifications, sizes, product information",
+    "document_qa": {
+        "ar": "أسئلة عن ملف",
+        "definition": "Summarize, extract from or answer questions about a document, PDF, contract, email or text the user provides (NOT translation)",
     },
-    "service_complaint": {
-        "ar": "الشكاوى على جودة الخدمة",
-        "definition": "Complaints about staff behaviour or overall service quality, NOT about a specific order's delivery",
+    "scheduling": {
+        "ar": "مواعيد وتذكيرات",
+        "definition": "Set reminders, alarms, calendar events or meetings; check or change the user's schedule",
     },
-    "other": {
-        "ar": "أخرى",
-        "definition": "Messages that fit no other department: general questions, suggestions, greetings, unrelated messages",
+    "general_chat": {
+        "ar": "محادثة عامة",
+        "definition": "Answer directly with no tool: general knowledge that doesn't change, advice, explanations, writing help, greetings, chit-chat",
     },
 }
 
