@@ -1,0 +1,9 @@
+google-genai
+transformers
+torch
+pandas
+numpy
+scikit-learn
+matplotlib
+tabulate
+psutil
