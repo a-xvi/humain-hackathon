@@ -1,0 +1,10 @@
+set,n,student (active),student (all labels),tfidf (all labels),teacher,student (active + augmentation)
+test (clean),319,0.882,0.893,0.842,0.884,0.877
+stress_arabizi,79,0.085,0.196,0.053,0.87,0.243
+stress_codeswitch,79,0.756,0.772,0.598,0.855,0.767
+stress_unseen_dialect,80,0.93,0.951,0.739,0.931,0.951
+perturbed: typos,319,0.865,0.877,0.836,,0.869
+perturbed: letter_variants,319,0.83,0.836,0.842,,0.843
+perturbed: arabizi_rule_based,319,0.074,0.07,0.072,,0.503
+perturbed: truncated_half,319,0.77,0.792,0.745,,0.772
+perturbed: noise_emoji,319,0.876,0.898,0.841,,0.869

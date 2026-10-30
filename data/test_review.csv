@@ -1,0 +1,141 @@
+id,set,text,gen_label,teacher_label,human_label
+15,test,أرجو منكم إضافة خيار الدفع عبر بطاقات مدى للشركات في التحديث القادم لتطبيقكم لكي نستطيع استخدام الحساب التجاري.,other,payments_billing,payments_billing
+21,test,يا جماعة الخير الغيت طلب سماعات الألعاب قبل ثلاثة أيام ولحين كتابة هذه الرسالة لم يرجع المبلغ إلى محفظتي الرقمية في التطبيق!,payments_billing,returns_refunds,returns_refunds
+39,stress_codeswitch,الـ refund طول عشان يرجع لـ الـ credit card مع انه الـ agent وعدني خلال 24 hours، وين المصداقية؟,service_complaint,returns_refunds,drop
+47,test,لماذا يتم خصم قيمة طلب سماعات البلوتوث من حسابي البنكي مرتين بينما يظهر لي في التطبيق أن سلة التسوق فارغة ولم يتم تسجيل أي طلب جديد؟,app_technical,payments_billing,payments_billing
+53,test,حاولت اسجل دخول بالتطبيق الجديد بس يعطيني خطأ بالسيرفر، وين اروح الحين ابي اشتري اغراض الجمعية؟,account_login,app_technical,
+121,test,تكفون افزعوا لي ابي احذف حسابي القديم وافتح حساب جديد برقم ثاني بس خايف تروح نقاطي,other,account_login,account_login
+129,test,مساء الخير، الموقع صاير بطيء وايد عندي اليوم وما أقدر أتصفح قسم الأثاث زين، شنو الحل؟,other,app_technical,app_technical
+185,test,ياخي انتم ليش تحطون ناس ما تفهم بالخدمة؟ كلمتكم بخصوص فاتورة وطلعلي واحد اسلوبه كنه جالس بالديوانية,service_complaint,other,service_complaint
+188,stress_codeswitch,ممكن تساعدني لو سمحت؟ نسيت البาสورد حق الحaccount وجربت كل شي بس الـ verify code ما يوصلني على الجوال وش الحل؟,account_login,returns_refunds,account_login
+190,test,سلام عليكم طلبيت المواعين والقدور وصلت بس كرتوناتها مبهدلة والمندوب رماها عند الباب وراح بدون ما يوقّعني,orders_delivery,other,orders_delivery
+194,test,السلام عليكم، عندي مشكلة بالتطبيق يعلق دايم أول ما أفتحه وتطلع لي شاشة سوداء، مع إن جوالي جديد ونت البيت عندي صاروخ.,app_technical,payments_billing,app_technical
+202,stress_arabizi,"marhbten, 3ndi moshkla fi el payment page t3lqat w ma tmamet el 3mlya bs el floos nsht mn el hesab w el order ma tsl",app_technical,payments_billing,payments_billing
+218,stress_codeswitch,الحين إذا بسوي cancel للـ order متى يصير الـ refund بحسابي الـ bank؟,payments_billing,returns_refunds,returns_refunds
+239,test,ياخي ليش ما تحطون فرع لكم ببريدة؟ تعبنا من التوصيل كله يطول لين يوصلنا للقصيم,other,orders_delivery,other
+244,test,لم أتمكن من ربط حسابي برقم الهوية الوطنية لإتمام عملية الشراء بالتقسيط، النظام يرفض قبول الرقم مع أنه صحيح.,account_login,payments_billing,account_login
+249,stress_arabizi,"Bs bghit astfsar iza mdynatkom fiha fr3 l2ejra3, 3lshan el fstan ma 3gbny w abgha a9roe mkan ayd3ah.",returns_refunds,product_inquiry,returns_refunds
+304,stress_codeswitch,صباح الخير، بغيت أستفسر عن الـ loyalty program حقكم كيف أجمع points؟,other,product_inquiry,other
+305,stress_codeswitch,سويت return لجزمة Nike قبل أسبوعين ولحين ما وصلني الـ refund على الـ card حقّي.,payments_billing,returns_refunds,returns_refunds
+334,test,أحاول تسجيل الدخول عبر حساب جوجل المرتبط بمتجركم ولكن تظهر لي شاشة بيضاء فارغة ولا يكتمل تسجيل الدخول نهائياً.,account_login,app_technical,account_login
+615,stress_codeswitch,السلام عليكم، لو سمحتوا أبغى أحذف الـ account حقي نهائياً من الـ system كيف أقدر أسويها؟,other,account_login,account_login
+628,stress_codeswitch,"Hello, هل عندكم branch أو showroom في الرياض أقدر أششوف الـ products قبل ما أسوي checkout؟",other,product_inquiry,other
+647,stress_codeswitch,مرحباً، بغيت أسأل متى بينزل الـ app update الجديد؟ صاير فيه lag مو طبيعي,other,app_technical,app_technical
+704,stress_arabizi,"Marhaba, bkam el-thlaja el-LG el-double door wfeha taqseet bedon fawaed?",product_inquiry,payments_billing,product_inquiry
+720,test,السلام عليكم، هل اقدر استخدم بطاقة سوا لدفع قيمة الطلب ولا بس بطاقات مدى وفيزا؟,other,payments_billing,payments_billing
+735,stress_arabizi,"mesakum allah bil5eer, bghett aqool inno ltawseel marra saree3 w al3ummal mohtaremeen, shokran lekum",other,service_complaint,other
+745,test,هلا والله، أنا طلبت جزامة وخزانة ملابس وثلاجة صغيرة، المندوب وصل بس جاب الثلاجة مضروبة من الجنب، أقدر أبدلها الحين ولا وش السوات؟,orders_delivery,returns_refunds,returns_refunds
+762,stress_unseen_dialect,يعطيكم العافية، شو قصة موقعكم اليوم مو عم يفتح معي عم يعطيني خطأ بالسيرفر من شي ساعتين!,other,app_technical,app_technical
+770,test,ابي ألغي طلبية الطاولة اللي شريتها قبل ساعتين بس مدري وين زر الإلغاء بالتطبيق، لحقوا علي قبل لا تنشحن,returns_refunds,orders_delivery,orders_delivery
+775,test,يا اخوان الحقوني، خصموا قيمة اللابتوب مرتين من حسابي بس في التطبيق مكتوب لم يتم اتمام الطلب والصفحة علقت!,app_technical,payments_billing,payments_billing
+801,stress_arabizi,"salam, law sama7to ana 7ajez thawwar w m3aha aghrad matawsel ela bokra w ana safir, ymdan al3amel ygheereh?",other,orders_delivery,orders_delivery
+821,stress_unseen_dialect,هو عادي لو طلبت فاتورة باسم الشركة بدل اسمي الشخصي لما اشتري موبايل من عندكم ولا فيه اجراءات معينة؟,other,product_inquiry,payments_billing
+833,test,السلام عليكم، هل لديكم فرع استلام في مدينة الطائف أم أن الخدمة تقتصر فقط على التوصيل المنزلي؟,other,product_inquiry,other
+854,test,يا اخي الموقع بطئ باللاب توب ويوم جيت بحول على الجوال ما قدرت اسجل دخول لان صفحة الرمز التفعيلي ماتتحمل، مع ان النت عندي سريع,app_technical,account_login,app_technical
+859,stress_arabizi,"Salam, ana b3d ma a3ml al-talab, abi a3rf kam yakhod ayam 3ashan ywsel el-monkaz? oh sorry asdi el-twasol gbl al-shra'a kam yakhod wqt lma yredon 3lyy?",product_inquiry,orders_delivery,drop
+910,stress_codeswitch,أنا كنسلت الـ order قبل شوي بس الـ refund كم يطول لين ينزل بحسابي؟,orders_delivery,returns_refunds,returns_refunds
+915,test,وش هالخدمة الزفت حاطين الطلب مستلم وهو مب عندي بالبيت اساساً,orders_delivery,service_complaint,orders_delivery
+946,test,ياخي الموقع زفت ما يخليني اغير كلمة السر، كل ما اضغط اعادة تعيين يرجعني للصفحة الرئيسية!,account_login,app_technical,app_technical
+960,test,السلام، بغيت استفسر عن استرجاع مبلغ الشوز اللي كنسلته قبل ٣ أيام، لحد الحين ما دخل بحسابي البنكي وين راحوا؟,payments_billing,returns_refunds,returns_refunds
+992,stress_unseen_dialect,هو انا ليه كل ما احاول اعمل اكونت جديد بيبعتلي رسالة ان الايميل مستخدم مع اني اول مرة اسجل اصلا؟ دي حاجة تنكد الواحد,other,account_login,account_login
+1012,stress_arabizi,"masa2 alnoor, shokran 3la l5edmah lmomtazah bas kont abit a3rif hal fee takhfeedat fee 3eed alfi6er?",other,product_inquiry,product_inquiry
+1022,stress_codeswitch,يا جماعة الخير وش هالبصيرة؟ كل ما أحاول أدخل الـ profile حقي يطلع لي error 404 وما أقدر أشوف الـ cart ولا الـ wishlist!,account_login,app_technical,account_login
+1030,stress_codeswitch,"Hi team, بغيت أعرف وش الـ payment methods المتاحة عندكم؟ هل تدعمون Apple Pay وتاب تمارا ولا بس credit card؟",other,payments_billing,payments_billing
+1094,test,ياخي خصموا حق العطور مرتين وانقهرت مرة، ابغى فلوسي ترجع اليوم قبل بكره,payments_billing,returns_refunds,payments_billing
+1095,test,تعبت وانا انطر احد يساعدني بالتشات، الخدمة صارت بطيئة وايد وموظفينكم صايرين نفسية وما يجاوبون عدل,service_complaint,payments_billing,service_complaint
+1100,stress_arabizi,Ya akhi leesh el-7sab tqaffal fuja2a? ana bas knt abgah ashik 3la 7alat el-talab w el-tawseel la telbisouni w tardoni mn el-saf7a!,account_login,app_technical,account_login
+1104,test,يا اخوان انا طلبي حق البقالة وصلني ناقص وفيه منتجات ما طلبتها وانخصمت الفلوس كاملة ابي استرداد,payments_billing,returns_refunds,returns_refunds
+1175,stress_arabizi,Min fadlakum abgha ashoof hal 6albi t5s9 al aqlam w al maktabah t7rak min al mostawda3 wala la,orders_delivery,product_inquiry,orders_delivery
+1192,stress_codeswitch,ليه الـ app دايماً يهنك وقت الـ checkout والـ technical support حقكم ما يستجيبون للـ live chat أبداً؟,service_complaint,app_technical,payments_billing
+1268,test,اقول يالطيب الحين لو بغيت اهدي واحد من خوياني هدية من عندكم كيف أضبط العنوان بدون ما يدري؟,other,orders_delivery,other
+1291,stress_codeswitch,مساء الخير، الـ order حقي مكتوب delivered بس الصراحة ما وصلني شي! بس ترا ما أتكلم عن الـ shipping delay، أنا أسأل هل ممكن يكون السواق سلمه لعنوان غلط؟,other,orders_delivery,orders_delivery
+1298,stress_codeswitch,مساكم الله بالخير، تراني صراحة مره مبسوط من الـ packaging حق الـ order الأخير، بس عندي question بخصوص الـ warranty هل هو international ولا local؟,other,product_inquiry,product_inquiry
+1343,stress_unseen_dialect,يسعد مساكم، المندوب دقلي وعصّب عليّ وقلي ما بدي أطلع عالعمارة مع إنه أنا دفعت حق التوصيل لباب البيت، حلولي هالقصة ضروري,orders_delivery,service_complaint,orders_delivery
+1345,test,مساء النور، هل فيه إمكانية أستلم طلبي من المستودع بالدمام بنفس اليوم ولا لازم توصيل؟,other,orders_delivery,
+1366,test,لو سمحتوا أنا حطيت عنوان غلط للطلب بالغلط وشلون أقدر أعدله الحين قبل لا تحطونه مع الشحن؟,other,orders_delivery,orders_delivery
+1388,stress_arabizi,"Ya jma3a al 6alab jaany naqas, al fustan m3ah al shantah bas al heda2 ma ja w ana abi arje3hom aw ywsalni elbagi, shlon?",orders_delivery,returns_refunds,orders_delivery
+1412,test,وين طلبية الثلاجة اللي شريتها؟ ترا ما يهمني التوصيل الحين كثر ما ان التطبيق ما يطلع لي تفاصيل الشحنة ولا يرسل لي فاتورة، كل ما فتحت الطلبات يطلع لي خطأ بالاتصال,app_technical,orders_delivery,app_technical
+1459,test,تطبيقكم سيء بالتحديثات، طالع عندي ان لابتوب الألعاب توه مطلع من المستودع مع اني شاريته من اسبوع وابيه ضروري للجامعة بكرة,orders_delivery,app_technical,orders_delivery
+1495,test,اقول متى بينزل العرض حق اليوم الوطني؟ ترا ننتظره من اسبوع خلصونا,other,product_inquiry,other
+1536,stress_unseen_dialect,فين الفلوس اللي المفروض ترجعلي عشان الأرجاع بتاع تيشيرتات الولاد؟ بقالي اسبوع مستني الحكاية دي,payments_billing,returns_refunds,returns_refunds
+1540,test,السلام عليكم، بغيت أعرف وش أقرب وقت ممكن يوصلني فيه الطلب لحي المزروعية؟,other,orders_delivery,orders_delivery
+1580,test,يا ساتر على بطء الاستجابة عندكم! الواحد يموت وينحرق دمه عشان الاقي احد يحل لي مشكلة بسيطة في حسابي,service_complaint,account_login,service_complaint
+1591,test,لماذا توقفت خدمة التوصيل السريع لمنتجات السوبرماركت في حي النخيل فجأة؟ لقد كنا نعتمد عليها كثيراً.,other,orders_delivery,other
+1608,stress_arabizi,"Ya jma3a 3ndy moshkela kbira, el-app kol ma aftaho y3laq 3la saf7at el-login w may5leni ad5ol a3dil el-address wala el-esem.",account_login,app_technical,account_login
+1621,test,ممكن اعرف ليش تطبيقكم يعلق كل ما جيت افتحه؟ جوالي ايفون وتحديثه اخر اصدار والمشكلة دي من امس,other,app_technical,app_technical
+1625,stress_arabizi,"Salam 3likom, al krtun wasly mftooh w al thalajah al saghirah mdroba min al ganb, wash al 7al m3akum?",orders_delivery,returns_refunds,returns_refunds
+1666,stress_arabizi,"ya jama3a fee mushkila bilapp, alsorah matfta7 3ndi w ana ist5dam iPhone",other,app_technical,app_technical
+1675,stress_arabizi,"Salam, al-mawstowda3 akkadoo inna al-shahnah raga3at bas lsa ma nazal al-refund fee al-visa, shlon al-tareegah?",payments_billing,returns_refunds,returns_refunds
+1677,test,مساء الخير، رجعت تيشيرتات البولو اللي طلبتها عشان المقاس كبير و لحد دحين ما شفنا شي بخصوص الفلوس بحسابي,payments_billing,account_login,drop
+1686,test,وين وصل طلبي للأجهزة الرياضية؟ رقم الطلب 9982، المندوب دق عليّ مرة وحدة وما رديت ومن وقتها انقطع الاتصال وما وصلني شي!,orders_delivery,payments_billing,orders_delivery
+1687,test,سلام عليكم، الحين انخصم مني مبلغ الغسالة مرتين بالبطاقة وشنو الحل؟ أبي رجعوا فلوسي بسرعة لو سمحتوا لأن المبلغ وايد كبير.,payments_billing,orders_delivery,payments_billing
+1691,stress_arabizi,"Al salam 3likom, 7abt astfsar 3n 6alby el mobile, wain w9al 7alyan?",orders_delivery,account_login,orders_delivery
+1714,stress_unseen_dialect,مسا الخير، صارلي أسبوع عم استنى استرجاع المصاري تبع الطلبية اللي كنسلتها بسبب تأخير الشحن، وين صار الموضوع شو هالتأخير؟,payments_billing,returns_refunds,returns_refunds
+1802,test,ليش سعر التلفزيون يطلع لي شكل بسلم الدفع يصير سعر ثاني؟ شكل فيه بق بالسيستم حقكم حق الأسعار، الحين شلت هم كيف بشتري.,app_technical,payments_billing,payments_billing
+1822,test,السلام عليكم، كل ما جيت أخلص سلة المشتريات وأدفع قيمة الشاشة واللابتوب يعطيني السستم خطأ تقني وما ينفذ العملية، شوفوا لي حل الحين ضروري.,app_technical,service_complaint,app_technical
+1839,stress_unseen_dialect,ليه الفاتورة بتاعت الأوردر نازل فيها سعر غير اللي كان مكتوب وقت ما طلبت الطقم البيتي؟ وعايز اعرف اقسطها ولا لأ,payments_billing,returns_refunds,payments_billing
+1840,stress_unseen_dialect,يا ريت لو تحطوا خدمة الشات المباشر مع موظف خدمة العملاء لأنو الضغط كير كبير على التليفون وما عم حدا يرد، شكراً.,other,payments_billing,other
+1848,stress_unseen_dialect,لو سمحتوا نزلت عندي فاتورة السوبرماركت ناقصة مادتين مع إنهم وصلوا للبيت، ممكن تعدلوا المبلغ المدفوع؟,payments_billing,returns_refunds,payments_billing
+1858,test,يا اخي خدمة العملاء عندكم نايمين، طلبت تليفزيون ودفعت تابي وطلع لي ان فيه خطأ بالعملية والفلوس معلقة وين اروح الحين؟,payments_billing,returns_refunds,payments_billing
+1863,test,استلمت اللابتوب امس وطلعت الشاشة مكسورة من الداخل، ابي ارجعه واخذ فلوسي كاش ولا رصيد بالموقع ما تفرق معي.,returns_refunds,payments_billing,returns_refunds
+1867,stress_codeswitch,صباح الخير، نسيت الـ username حقي ومو فاكر بأي email سجلت، اقدر استرجعه برقم الهوية أو الـ mobile number؟,account_login,service_complaint,account_login
+1872,test,سلام عليكم، بغيت أسأل طقم المواعين الصيني اللي بـ ٢٩٩ ريال كم قطعة يجي بالضبط وهل يدخل الغسالة ولا يخرب؟,product_inquiry,orders_delivery,product_inquiry
+1873,stress_arabizi,ana m3صب jeddan mn el ta3amol el zbiil elly shfto mn el customer service taba3kom lma 7awelt ashtki 3an el montaj elly wasalni mksar,service_complaint,product_inquiry,service_complaint
+1893,stress_arabizi,Wainkom ya shabab? 6alby dy3uh al sharikah w gulu enno ma feeh a7ad belbeit w ana kunt mawgud 6ul al yoom,orders_delivery,service_complaint,orders_delivery
+1899,stress_codeswitch,السلام عليكم، هل أقدر أستلم الـ order من الـ warehouse حقكم بنفسي ولا delivery بس؟,other,orders_delivery,orders_delivery
+1929,test,ليش خدمة العملاء يتأخرون بالرد بالواتساب؟ ترانا ننطر وايد عشان رد بسيط,other,service_complaint,service_complaint
+1984,test,مساء الخير، ابغى استفسر دحين عندكم تخفيضات ولا استنى ليوم الوطني؟,other,product_inquiry,payments_billing
+1999,test,الحين طلبي حق الأواني المنزلية كنسلته من الصبح وللحين ما رجعوا فلوسي لحسابي مب معقولة!,payments_billing,returns_refunds,returns_refunds
+2018,test,يا جماعة الخير فين موقع معرضكم الرئيسي في جده؟ ودي اجي اشوف طقم الكنب بنفسي قبل ما اطلبه,other,product_inquiry,other
+2075,test,السلام عليكم، ترا التطبيق حقكم صاير زفت وكل ما بغيت اسوي شي يعلق ولا يفتح معاي، شنو هالحالة؟,service_complaint,app_technical,app_technical
+2099,test,ياخي الموقع بطيء حيل عندي مدري المشكلة من عندي ولا من السيرفر حقكم؟ عجزت اتصفح قسم الاثاث,other,app_technical,app_technical
+2100,stress_codeswitch,السلام عليكم، عندي complaint عن الـ customer service اللي كلمتهم أمس، مو معقولة الـ wait time كان طوييل مرة!,other,service_complaint,service_complaint
+2103,test,هلا والله، بسألكم تطبيقكم الجوال فيه مشكلة ما يفتح معي كل ما بغيت أتصفح العروض,other,app_technical,app_technical
+2144,test,مساكم الله بالخير، عندي ملحوظة بسيطة على طريقة تغليف الأجهزة الذكية تحسونه مو ذاك الزود,other,product_inquiry,other
+2155,test,اقول لو سمحتو كيف اقدر احذف حسابي من الموقع نهائياً؟ ماني بحاجته دحين,other,account_login,account_login
+2162,test,ابي استفسر الحين لو رجعت فستان العيد يرجعون المبلغ كاش ولا رصيد بالموقع ولا كيف طريقتكم؟,payments_billing,returns_refunds,returns_refunds
+2171,test,صباح الخير، لقد نسيت كلمة المرور الخاصة بحسابي ولا أستطيع الوصول إلى البريد الإلكتروني المسجل، أرجو المساعدة.,other,account_login,account_login
+2244,stress_unseen_dialect,يا جماعة الخير هو الشحن للمدينة المنورة بياخد كام يوم تقريبا؟ اصل عندي ظرف و محتاج اعرف بالظبط,other,orders_delivery,orders_delivery
+2269,test,مساء النور، هل تتوفر لديكم خدمة تركيب الأثاث المنزلي المشتري أم يجب علي الاستعانة بفني خارجي؟,other,product_inquiry,payments_billing
+2273,test,كيف اقدر اكنسل طلب الكنب اللي سويته امس؟ لسا ما انشحن بس مو عارف من التطبيق,returns_refunds,orders_delivery,orders_delivery
+2326,stress_codeswitch,أبي أنزل فاتورة الطلب اللي قبل شوي عشان الـ company تبغى الـ receipt ضروري.,payments_billing,product_inquiry,payments_billing
+2327,test,ليش سعر الغسالة يطلع لي شكل بالسلة وشكل ثاني اذا جيت ادفع؟ ترا هذي لخبطة بالنظام عندكم وعدلوها بسرعة ولا بكنسل الطلب,app_technical,payments_billing,payments_billing
+2335,test,من جد منصدم من مستوى الوقاحة عند الموظفين عندكم، المفروض تفنشونهم كلهم,service_complaint,product_inquiry,service_complaint
+2347,test,خدمة العملاء لديكم تحتاج إلى إعادة تأهيل شاملة؛ الموظفون غير مدركين لسياسات الاسترجاع الخاصة بالملابس والأجهزة.,service_complaint,returns_refunds,service_complaint
+2407,test,ياخي ليش دايم تخلص البطاريات حقت الرموتات اللي تيجو مع الاجهزة؟ ياليت تهتموا بالنقطة دي,other,product_inquiry,other
+2419,test,أواجه مشكلة تقنية متكررة عند محاولة الدفع بطاقة مدى لتأكيد شراء مستحضرات التجميل، تظهر لي رسالة خطأ في النظام كل مرة.,payments_billing,app_technical,payments_billing
+2420,stress_unseen_dialect,مساء الخير، كنت عايز اقترح انكم تضيفوا خدمة الدفع بالتقسيط مع البنوك المختلفة لأن دي هتسهل علينا كتير في شراء الأجهزة الكبيرة، وسلامو عليكم,other,payments_billing,payments_billing
+2442,test,ليش مكتوب في التطبيق أن الطلب تم تسليمه وأنا جالس في البيت وما دق علي أحد ولا شفات عيون المندوب؟ هذا استهتار بالعملاء!,orders_delivery,service_complaint,orders_delivery
+2443,stress_codeswitch,من البارح وانا احاول أتواصل مع الـ support عشان مشكلة في الـ account حقي وكل شوي تحولوني على department ثاني بدون فايدة,service_complaint,account_login,service_complaint
+2456,stress_arabizi,"ya akhi lwebsite 3ndkom yablah tahseen, kul ma ajji asajil do5ool y3allaq ma adri leeih",other,app_technical,app_technical
+2468,test,يا جماعة أنتم تقبلون بطاقات مدى القديمة ولا بس الفيزا الجديدة؟,other,payments_billing,payments_billing
+700,test,ممكن فاتورة مفصلة لطلب الأجهزة الرياضية اللي وصلني الاسبوع الماضي عشان ابغاها للشركة,payments_billing,payments_billing,payments_billing
+335,test,لماذا تم رفض عملية الدفع عبر خدمة آبل باي رغم أن الرصيد كافٍ في الحساب؟ طلبيتي معلقة ورقمها هو ثمانية آلاف ومئتان وعشرة.,payments_billing,payments_billing,payments_billing
+1444,test,مساء النور، أنا سويت طلب خلاط كهربائي ودخلت كود الخصم بس ما انخصم شي وانحسب علي السعر الاصلي، ابي اعدل الفاتورة.,payments_billing,payments_billing,payments_billing
+1595,test,السلام عليكم، شريت كفر جوال بس للأسف ما ركب على جهازي، هل أقدر أسوي له استبدال بفرعكم ولا بس أونلاين؟,returns_refunds,returns_refunds,returns_refunds
+1228,test,مرحبا، كنسلت طلب المكنسة الذكية قبل يومين والحين أبي أعرف متى يرجع المبلغ المخصوم من بطاقة مدى؟,returns_refunds,returns_refunds,returns_refunds
+743,stress_arabizi,"Ana galt shrit microwave w tlr feeh 3eeb sn3i, khtatw ezhra w maystghl, win arje3ah?",returns_refunds,returns_refunds,returns_refunds
+78,stress_codeswitch,ليه الـ app كل ما أسوي log in يقفل بوجهي؟ مسحته ورجعته ونفس الشي، ترا زهقت من هالعطل!,account_login,account_login,account_login
+2375,test,يا جماعة تطبيقكم معلّق على شاشة التحميل من ساعة، وش السواة؟ ابي اطلب مكيف سبليت ومب راضي يفتح معي متجركم زين، حذفته ورجعته ولا فيه فايدة,app_technical,app_technical,app_technical
+1476,test,عندي فستان عرس شريته بس طلع ما يناسبني اققدر ارجعه ولا خلاص راح علي الوقت؟,returns_refunds,returns_refunds,returns_refunds
+458,test,مساء الخير، عندي مشكلة بصفحة تتبع الطلب حقت مكينة القهوة، الشاشة معلقة على اللودنج من الصباح ولا تتحرك أبداً، مدري وش صاير بالموقع.,app_technical,app_technical,app_technical
+2120,stress_codeswitch,الـ TV طلع فيه dead pixels و ودي أسوي replacement بس ما عرفت كيف أسوي drop off للـ item في الـ branch,returns_refunds,returns_refunds,returns_refunds
+823,test,يا ساتر على العلقة! كل ما اضغط على قسم الالكترونيات الشاشة تصير بيضاء ويطلعني برا التطبيق كله، جوالي ايفون ومحدث اخر تحديث,app_technical,app_technical,app_technical
+2122,test,السلام عليكم، طلبت كيس رز كبير وفيه خرق وسايب بالكرتون، ابي ارجعه واسترد دراهمي ولا ترا بشتكي,returns_refunds,returns_refunds,returns_refunds
+863,stress_codeswitch,الـ courier كلمني وقالي بيجي بس ما وصلني شي وجواله صار قفل، أبي حل ضروري,orders_delivery,orders_delivery,orders_delivery
+1971,test,تعامل موظف خدمة العملاء عبر الدردشة الفورية كان سيئاً للغاية وغير مهتم بحل مشكلتي المتعلقة بتطبيقكم.,service_complaint,service_complaint,service_complaint
+143,stress_unseen_dialect,يا جماعة الخير من الصبح عم جرب سجل دخول ومو عم يزبط، مع إني متأكد من الباسورد ومن رقم الموبايل، ضروري فوت كرمال طلبات رمضان,account_login,account_login,account_login
+661,test,الحين المندوب كلمني وقام يعصب علي ويقول ما يقدر يوصل لشارعنا بالجبيل ويبي يسلمني الطلب بعيد عن بيتنا، شالسالفة؟ انا دافع قيمة التوصيل للباب,orders_delivery,orders_delivery,orders_delivery
+19,stress_codeswitch,يا جماعة الـ App علق عندي تماماً لما جيت أسوي check out وصار فيه endless loading وش الحل؟,app_technical,app_technical,app_technical
+70,stress_arabizi,"ana dafe3 floos w mte2amal khdmah mohtaramah, mesh ma3gool el mwazaf yshobny w ygoli 'enta matfham'",service_complaint,service_complaint,service_complaint
+1326,stress_codeswitch,هل الـ material حق الـ t-shirt قطن 100% ولا يجي معه polyester؟,product_inquiry,product_inquiry,product_inquiry
+2036,test,ترا طولتوا وايد على ما رديتوا علي بخصوص الشكوى حقتي، كل يوم اكلمكم ومحد يعطيني وجه وكل واحد يقطني على الثاني,service_complaint,service_complaint,service_complaint
+941,test,أبي اشتكي على الفرع حقكم بالرياض الموظفين جالسين يسولفون ويضحكون ولا هم مهتمين بالزبائن اللي واقفين,service_complaint,service_complaint,service_complaint
+2323,test,أريد الاستفسار عن كشافات الإضاءة الذكية ليد، هل يمكن ربطها مباشرة بتطبيق اليكسا بدون الحاجة لجهاز جسر إضافي؟,product_inquiry,product_inquiry,product_inquiry
+631,test,لقد اتصلت بكم ثلاث مرات اليوم وكل مرة يتم تحويلي من موظف لآخر دون أي فائدة تذكر، هذا إهمال واضح.,service_complaint,service_complaint,service_complaint
+1599,test,يا اخوان ترا تعبت مع هالتحديث الجديد، كل ما دخلت على قسم العروض العطور يهنق الجوال ويقفل لحاله، وش الحل معككم؟,app_technical,app_technical,app_technical
+2182,stress_codeswitch,السلام عليكم، أبي أغير الـ email المسجل بالحساب بس النظام مو راضي يقبل الباسورد القديم، ممكن تفيدوني؟,account_login,account_login,account_login
+1938,test,وين وصل طلب الكنب حقي؟ مكتوب جاري التوصيل من الصبح ومحد دق علي,orders_delivery,orders_delivery,orders_delivery
+1154,test,لقد قمت بإنشاء حساب جديد اليوم لشراء ملابس العيد لأطفالي ولكني لم أستقبل رسالة تفعيل البريد الإلكتروني، وعندما أحاول إعادة الإرسال يظهر لي خطأ في النظام.,account_login,account_login,account_login
+1198,stress_codeswitch,"Hi, عندي suggestion بسيط، ياليت تضيفون dark mode للـ app لأن عيوني راحت مع الـ white background",other,other,other
+1119,stress_unseen_dialect,مساء الخير يا فندم، أنا طلبت غسالة أطباق من خمس أيام ومفيش أي حد كلمني بخصوص الميعاد، وكل ما افتح تطبيق الشحن ألاقي إن الطلب في المخزن.. إزاي كده؟ دا أنا دافع بالفيزا!,orders_delivery,orders_delivery,orders_delivery
