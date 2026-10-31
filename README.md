@@ -33,7 +33,7 @@ All results are on 320 held-out requests. The test labels were checked by a pers
 Full tables: [`experiments/RESULTS.md`](experiments/RESULTS.md) · Decisions and trade-offs: [`docs/DECISIONS.md`](docs/DECISIONS.md)
 
 ## How it works
-1. **Data.** A generator LLM (Gemini 3.5 Flash-Lite) writes assistant requests in Najdi, Hijazi, Eastern and MSA: a 1,920-request pool and a separate 320-request test set. It also writes three 80-request stress sets: unseen dialects, natural Arabizi, and Arabic–English code-switching.
+1. **Data.** A separate generator LLM writes assistant requests in Najdi, Hijazi, Eastern and MSA: a 1,920-request pool and a separate 320-request test set. It also writes three 80-request stress sets: unseen dialects, natural Arabizi, and Arabic–English code-switching.
 2. **Teacher.** GPT-4.1-mini labels requests with a forced choice of 8 tools (temperature 0, batched, cached). It is a different model from the generator, to reduce bias.
 3. **Human check.** A person reviews every test request where the generator and the teacher disagree, plus random spot checks.
 4. **Active distillation.**
@@ -46,9 +46,11 @@ Full tables: [`experiments/RESULTS.md`](experiments/RESULTS.md) · Decisions and
 7. **Hybrid mode.** If the router's confidence is below a threshold, the request goes to GPT. One number trades cost against quality.
 
 ## Run the demo (offline)
+**1. Get the trained model** (≈600 MB, not stored in Git): download [sikkah_model.zip](https://drive.google.com/file/d/1W0MZWwMhsqXusa47nuv6NXFG3U0sxXQy/view?usp=sharing) and unzip it into `models/`, so you have `models/student_final/config.json`.
+
+**2. Run:**
 ```bash
 pip install -r requirements-laptop.txt
-# put the trained model in models/student_final
 python app.py            # opens http://127.0.0.1:7860; turn Wi-Fi off first
 python bench_laptop.py   # latency on your own CPU
 ```
@@ -87,6 +89,6 @@ docs/DECISIONS.md           technical decisions and trade-offs
 - Arabizi and mixed English still trail GPT. Hybrid mode covers them.
 - The router ships in fp32 at 652 MB, because int8 lost accuracy.
 
-**Next:** real assistant logs; multi-tool requests; distilling to a smaller encoder that survives int8; ALLaM as the online teacher; retraining from cases where GPT overrules the router.
+**Next:** learn from real use (every request hybrid mode sends to GPT becomes a free label on a hard case; retrain weekly so the router needs GPT less); multi-tool requests; distilling to a smaller encoder that survives int8; ALLaM as the online teacher.
 
 The same pipeline was first built for Arabic customer-service routing (v1) and then re-targeted to tool routing.

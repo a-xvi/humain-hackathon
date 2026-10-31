@@ -25,7 +25,7 @@ Each entry gives the decision, why it was made, the evidence and the trade-off. 
 ## D5 · Synthetic data and a human-checked test set
 - **Why:** there's no public dataset of Arabic assistant requests labeled by tool.
 - **Bias controls:**
-  - The generator (Gemini 3.5 Flash-Lite) is a different model from the teacher (GPT-4.1-mini).
+  - The generator is a different LLM from the teacher (GPT-4.1-mini), so the teacher isn't grading its own writing.
   - The test set is generated separately from the pool.
   - Near-duplicates and leaks are removed.
 - **Human check:** the generator's intended tool and the teacher's label agreed 87.6% of the time. All 57 disagreements were reviewed by hand, plus 30 random spot checks.
