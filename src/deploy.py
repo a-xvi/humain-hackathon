@@ -1,7 +1,7 @@
 """Make the student laptop-ready and MEASURE the compute savings.
 
-- int8 dynamic quantization: Linear-layer weights stored as 8-bit integers -> ~4x smaller layers,
-  faster on CPU. Applied at load time, so the saved model stays standard Hugging Face format.
+- int8 dynamic quantization (optional, quantize=True): ~3x faster on CPU but lost ~0.10 macro-F1 on this
+  model, so the shipped default is fp32. Applied at load time; the saved model stays standard HF format.
 - Benchmark on CPU with 1 thread per request (like a modest laptop): latency p50/p95, throughput,
   model size, RAM.
 """
@@ -14,7 +14,7 @@ import numpy as np
 from src.labels import LABEL_LIST
 
 
-def load_student(path, quantize=True, threads=None):
+def load_student(path, quantize=False, threads=None):
     import torch
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
     if threads:
